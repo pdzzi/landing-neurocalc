@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neurocalc — O preceptor de neuroimagem que nunca dorme</title>
-<meta name="description" content="Envie slices de TC e RM, receba análises estruturadas em minutos e transforme cada exame em evolução. Do 4º ano ao plantão da residência.">
-<link rel="icon" type="image/svg+xml" href="https://b60eab0ab75424b73b03747ffbf09a60.cdn.bubble.io/f1765554968205x354732600291388200/Logo.svg">
+<title>Neurocalc: análise de exames de imagem com IA</title>
+<meta name="description" content="Envie imagens de TC, RM e outros exames, receba uma análise estruturada em minutos e acompanhe sua evolução nos estudos.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -214,13 +214,6 @@ header{
   var(--navy-deep);
 }
 .mock-body img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;z-index:2}
-.mock-hint{
-  position:absolute;inset:0;display:flex;flex-direction:column;gap:8px;
-  align-items:center;justify-content:center;text-align:center;
-  color:var(--gray-blue);font-size:13px;font-weight:600;
-}
-.mock-hint b{font-family:var(--mono);color:var(--blue-soft);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
-.mock-hint code{font-family:var(--mono);font-size:12px;background:rgba(92,154,255,.1);padding:4px 12px;border-radius:6px;color:var(--blue-soft)}
 /* HUD de cantos — metadados estilo visualizador DICOM */
 .hud{position:absolute;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:rgba(180,209,255,.55);z-index:3;pointer-events:none}
 .hud-tl{top:14px;left:18px}
@@ -340,8 +333,7 @@ section{padding:100px 0}
    ============================================================ */
 .showcase{background:var(--bg)}
 .showcase-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:center}
-.showcase .mock-frame{border-radius:var(--radius-banner);border-bottom:1px solid rgba(92,154,255,.28)}
-.showcase .mock-body{aspect-ratio:4/3}
+.showcase-img img{width:100%;border-radius:var(--radius-banner)}
 .check-list{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:16px}
 .check-list li{display:flex;gap:14px;align-items:flex-start;font-size:15.5px;color:var(--muted)}
 .check-list li b{color:var(--navy)}
@@ -527,7 +519,7 @@ section{padding:100px 0}
   font-size:17px;position:relative;
 }
 .cta-final .btn{position:relative}
-.cta-support{margin-top:28px;font-size:14px;color:var(--gray-blue);position:relative}
+.cta-support{margin-top:48px;font-size:14px;color:var(--gray-blue);position:relative}
 .cta-support a{color:var(--blue-soft);font-weight:600}
 .cta-support a:hover{text-decoration:underline}
 
@@ -581,8 +573,8 @@ footer{
 <!-- ============ HEADER ============ -->
 <header id="topo">
   <div class="wrap nav" id="nav">
-    <a class="nav-logo" href="#topo" aria-label="Neurocalc — início">
-      <img src="https://b60eab0ab75424b73b03747ffbf09a60.cdn.bubble.io/f1765554968205x354732600291388200/Logo.svg" alt="Neurocalc">
+    <a class="nav-logo" href="#topo" aria-label="Neurocalc: início">
+      <img src="assets/logo-neurocalc.svg" alt="Neurocalc">
     </a>
     <ul class="nav-links">
       <li><a href="#como-funciona">Como funciona</a></li>
@@ -592,8 +584,8 @@ footer{
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <div class="nav-cta">
-      <a class="nav-login" href="https://app.neurocalc.com.br">Entrar</a>
-      <a class="btn btn-primary" href="https://app.neurocalc.com.br">Criar conta grátis</a>
+      <a class="nav-login" href="https://app.neurocalc.com.br/">Entrar</a>
+      <a class="btn btn-primary" href="https://app.neurocalc.com.br/cadastro">Criar conta grátis</a>
       <button class="menu-btn" aria-label="Abrir menu" onclick="document.getElementById('nav').classList.toggle('nav-open')">
         <span></span><span></span><span></span>
       </button>
@@ -608,14 +600,14 @@ footer{
   <span class="hero-cross cross-3">WW 80 / WL 40</span>
 
   <div class="wrap hero-inner">
-    <span class="hero-badge"><span class="dot"></span> IA APLICADA A NEUROIMAGEM — PARA QUEM ESTUDA</span>
-    <h1>O preceptor de neuroimagem<br>que <em>nunca dorme</em>.</h1>
+    <span class="hero-badge"><span class="dot"></span> IA APLICADA A EXAMES DE IMAGEM, PARA QUEM ESTUDA</span>
+    <h1>Analise exames de imagem com <em>IA</em>.</h1>
     <p class="hero-sub">
-      Envie os slices de TC e RM, receba uma análise estruturada <b>em minutos</b> e
-      transforme cada exame em evolução medida. Do 4º ano de medicina ao plantão da residência.
+      Envie as imagens do seu exame de TC, RM ou outras modalidades e receba uma análise estruturada
+      <b>em minutos</b>, para estudar e acompanhar sua evolução. Do 4º ano de medicina ao plantão da residência.
     </p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" href="https://app.neurocalc.com.br">Criar conta grátis</a>
+      <a class="btn btn-primary" href="https://app.neurocalc.com.br/cadastro">Criar conta grátis</a>
       <a class="btn btn-ghost" href="#como-funciona">Ver o protocolo ↓</a>
     </div>
   </div>
@@ -636,16 +628,7 @@ footer{
         <span class="mock-url">app.neurocalc.com.br</span>
       </div>
       <div class="mock-body">
-        <span class="hud hud-tl">PACIENTE: ESTUDO_047<br>MODO: APRENDIZADO</span>
-        <span class="hud hud-tr">AXIAL · T2 FLAIR<br>WW 80 / WL 40</span>
-        <span class="hud hud-bl">SLICE 047/200</span>
-        <span class="hud hud-br">IA · ATIVA ●</span>
-        <div class="mock-hint" aria-hidden="true">
-          <b>Mockup 1 · Dashboard</b>
-          <span>Substituir pela tela do Figma</span>
-          <code>assets/mockup-1-dashboard.png</code>
-        </div>
-        <img src="assets/mockup-1-dashboard.png" alt="Dashboard do Neurocalc com análises recentes, créditos e ranking" onerror="this.style.display='none'">
+        <img src="assets/mockup-1-dashboard.webp" alt="Dashboard do Neurocalc com análises recentes, créditos e ranking">
         <div class="scanline" aria-hidden="true"></div>
       </div>
     </figure>
@@ -655,8 +638,8 @@ footer{
 <!-- ============ TICKER ============ -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>TC de crânio</span><span>RM</span><span>AVC isquêmico</span><span>Hemorragia subaracnóidea</span><span>Janela óssea</span><span>Efeito de massa</span><span>Desvio de linha média</span><span>Hidrocefalia</span><span>Fossa posterior</span><span>Hiperdensidade</span><span>Edema vasogênico</span><span>Sela túrcica</span>
-    <span>TC de crânio</span><span>RM</span><span>AVC isquêmico</span><span>Hemorragia subaracnóidea</span><span>Janela óssea</span><span>Efeito de massa</span><span>Desvio de linha média</span><span>Hidrocefalia</span><span>Fossa posterior</span><span>Hiperdensidade</span><span>Edema vasogênico</span><span>Sela túrcica</span>
+    <span>TC</span><span>RM</span><span>Raio-X</span><span>Ultrassom</span><span>Janela óssea</span><span>Contraste</span><span>Achados radiológicos</span><span>Laudo estruturado</span><span>Hiperdensidade</span><span>Edema</span><span>Fratura</span><span>Nódulo</span>
+    <span>TC</span><span>RM</span><span>Raio-X</span><span>Ultrassom</span><span>Janela óssea</span><span>Contraste</span><span>Achados radiológicos</span><span>Laudo estruturado</span><span>Hiperdensidade</span><span>Edema</span><span>Fratura</span><span>Nódulo</span>
   </div>
 </div>
 
@@ -683,19 +666,19 @@ footer{
         <span class="big-n">1</span>
         <span class="step-label">PASSO_01 // UPLOAD</span>
         <h3>Suba o exame</h3>
-        <p>Arraste os slices — ou a pasta inteira. Até 200 imagens de TC ou RM por análise, sem conversão manual.</p>
+        <p>Arraste os slices ou a pasta inteira. Até 200 imagens por análise, em diferentes modalidades, sem conversão manual.</p>
       </div>
       <div class="step reveal r-d2">
         <span class="big-n">2</span>
         <span class="step-label">PASSO_02 // PROCESSAMENTO</span>
         <h3>A IA varre tudo</h3>
-        <p>Os modelos identificam regiões críticas e achados relevantes, e estruturam o resultado — enquanto você pega um café.</p>
+        <p>Os modelos identificam regiões e achados relevantes, e estruturam o resultado em poucos minutos.</p>
       </div>
       <div class="step reveal r-d3">
         <span class="big-n">3</span>
         <span class="step-label">PASSO_03 // RESULTADO</span>
         <h3>Leia e aprenda</h3>
-        <p>Resultado detalhado com via de acesso e regiões críticas. Exporte em PDF com disclaimer médico incluído.</p>
+        <p>Resultado detalhado, organizado por região e nível de relevância. Exporte em PDF com disclaimer médico incluído.</p>
       </div>
     </div>
   </div>
@@ -707,29 +690,15 @@ footer{
     <div class="reveal">
       <span class="eyebrow"><span class="n">02</span> Resultado</span>
       <h2 class="section-title" style="font-size:clamp(27px,3.6vw,38px)">Ajuste a janela.<br>Suba o nível.</h2>
-      <p class="section-sub">Cada análise volta organizada por região, com os pontos críticos destacados. Não é um bloco de texto — é um mapa de estudo.</p>
+      <p class="section-sub">Cada análise volta organizada por região, com os pontos críticos destacados. Não é um bloco de texto, é um mapa de estudo.</p>
       <ul class="check-list">
-        <li><span class="check-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Regiões críticas destacadas</b> — a IA aponta onde olhar primeiro, você aprende o porquê.</span></li>
-        <li><span class="check-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Custo visível antes de confirmar</b> — a estimativa de créditos aparece antes do envio. Sem surpresa na fatura.</span></li>
-        <li><span class="check-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>PDF em um clique</b> — formatado, com disclaimer médico, pronto para a discussão clínica de amanhã.</span></li>
+        <li><span class="check-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Regiões críticas destacadas:</b> a IA aponta onde olhar primeiro, você aprende o porquê.</span></li>
+        <li><span class="check-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Custo visível antes de confirmar:</b> a estimativa de créditos aparece antes do envio. Sem surpresa na fatura.</span></li>
+        <li><span class="check-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>PDF em um clique:</b> formatado, com disclaimer médico, pronto para a discussão clínica de amanhã.</span></li>
       </ul>
     </div>
-    <!-- MOCKUP 2 · Tela de análise — substituir o src abaixo pelo caminho real -->
-    <figure class="mock-frame reveal r-d2">
-      <div class="mock-bar" aria-hidden="true">
-        <i></i><i></i><i></i>
-        <span class="mock-url">app.neurocalc.com.br/analise</span>
-      </div>
-      <div class="mock-body">
-        <span class="hud hud-tl">ANÁLISE: CONCLUÍDA<br>REGIÕES: 6 MAPEADAS</span>
-        <span class="hud hud-br">PDF · DISPONÍVEL</span>
-        <div class="mock-hint" aria-hidden="true">
-          <b>Mockup 2 · Tela de análise</b>
-          <span>Substituir pela tela do Figma</span>
-          <code>assets/mockup-2-analise.png</code>
-        </div>
-        <img src="assets/mockup-2-analise.png" alt="Tela de resultado de análise do Neurocalc com regiões críticas destacadas" onerror="this.style.display='none'">
-      </div>
+    <figure class="showcase-img reveal r-d2">
+      <img src="assets/mockup-2-analise.webp" alt="Tela de resultado de análise do Neurocalc com regiões críticas destacadas">
     </figure>
   </div>
 </section>
@@ -740,13 +709,13 @@ footer{
     <div class="reveal">
       <span class="eyebrow"><span class="n">03</span> Para quem é</span>
       <h2 class="section-title">Feito para quem vive isso</h2>
-      <p class="section-sub">Três rotinas diferentes, a mesma necessidade: ler neuroimagem com confiança — e provar essa evolução.</p>
+      <p class="section-sub">Três rotinas diferentes, a mesma necessidade: ler exames de imagem com confiança e acompanhar sua evolução.</p>
     </div>
     <div class="who-grid">
       <article class="persona reveal r-d1">
         <span class="persona-kicker">// estudante</span>
         <h3>Para quem está virando a noite pro R1</h3>
-        <p>A prova de residência cobra neuroimagem, e preceptor não cabe no bolso. O Neurocalc cabe: feedback estruturado em cada exame, às 3 da manhã se precisar.</p>
+        <p>Para treinar a leitura de exames de imagem fora do horário de aula, com feedback estruturado, no seu ritmo, mesmo de madrugada.</p>
         <div class="persona-tags">
           <span class="tag">Modo Estudo</span>
           <span class="tag">Ranking</span>
@@ -756,7 +725,7 @@ footer{
       <article class="persona reveal r-d2">
         <span class="persona-kicker">// residente</span>
         <h3>Para quem está entre um plantão e outro</h3>
-        <p>Tempo é o recurso mais escasso do plantão. Upload, processamento, resultado estruturado em minutos — e PDF pronto para a discussão clínica.</p>
+        <p>Tempo é o recurso mais escasso do plantão. Upload, processamento e resultado estruturado em minutos, com PDF pronto para a discussão clínica.</p>
         <div class="persona-tags">
           <span class="tag">Modo Normal</span>
           <span class="tag">Histórico</span>
@@ -766,7 +735,7 @@ footer{
       <article class="persona reveal r-d3">
         <span class="persona-kicker">// liga acadêmica</span>
         <h3>Para a liga que estuda em bando</h3>
-        <p>Crie a equipe, distribua créditos, acompanhe cada membro no painel. O líder rege, o grupo evolui — e o ranking mostra quem está estudando de verdade.</p>
+        <p>Crie a equipe, distribua créditos, acompanhe cada membro no painel. O líder organiza, o grupo evolui, e o ranking mostra quem está estudando de verdade.</p>
         <div class="persona-tags">
           <span class="tag">Plano Equipe</span>
           <span class="tag">Painel do líder</span>
@@ -783,7 +752,7 @@ footer{
     <div class="reveal">
       <span class="eyebrow"><span class="n">04</span> Recursos</span>
       <h2 class="section-title">Profundidade sem ruído</h2>
-      <p class="section-sub">Tudo que transforma exame em aprendizado — e aprendizado em constância.</p>
+      <p class="section-sub">Tudo que transforma exame em aprendizado, e aprendizado em constância.</p>
     </div>
     <div class="feat-grid">
       <div class="feat reveal r-d1">
@@ -799,7 +768,7 @@ footer{
       <div class="feat reveal r-d3">
         <div class="feat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 010-5H6m12 5h1.5a2.5 2.5 0 000-5H18M4 22h16M10 22V8m4 14V8M8 4h8l-1 9a3 3 0 01-6 0L8 4z"/></svg></div>
         <h3>Ranking e conquistas</h3>
-        <p>Cada análise pontua. Ranking mensal e geral — competição saudável que vira hábito.</p>
+        <p>Cada análise pontua. Ranking mensal e geral: competição saudável que vira hábito.</p>
       </div>
       <div class="feat reveal r-d4">
         <div class="feat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 16l4-4 4 2 5-6"/></svg></div>
@@ -809,7 +778,7 @@ footer{
       <div class="feat reveal r-d5">
         <div class="feat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
         <h3>Exportar PDF</h3>
-        <p>PDF formatado com disclaimer médico — para discussão clínica ou registro de estudo.</p>
+        <p>PDF formatado com disclaimer médico, para discussão clínica ou registro de estudo.</p>
       </div>
       <div class="feat reveal r-d6">
         <div class="feat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
@@ -826,14 +795,7 @@ footer{
           <span class="mock-url">app.neurocalc.com.br/ranking</span>
         </div>
         <div class="mock-body">
-          <span class="hud hud-tl">RANKING: MENSAL<br>EQUIPE: LIGA_NEURO</span>
-          <span class="hud hud-br">VOCÊ · #4 ▲2</span>
-          <div class="mock-hint" aria-hidden="true">
-            <b>Mockup 3 · Ranking</b>
-            <span>Substituir pela tela do Figma</span>
-            <code>assets/mockup-3-ranking.png</code>
-          </div>
-          <img src="assets/mockup-3-ranking.png" alt="Ranking gamificado do Neurocalc com pontuação mensal" onerror="this.style.display='none'">
+          <img src="assets/mockup-3-ranking.webp" alt="Ranking gamificado do Neurocalc com pontuação mensal">
         </div>
       </figure>
       <div class="reveal r-d2">
@@ -854,7 +816,7 @@ footer{
     <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto">
       <span class="eyebrow" style="justify-content:center"><span class="n">05</span> Planos</span>
       <h2 class="section-title">Investimento claro, créditos na mão</h2>
-      <p class="section-sub" style="margin:0 auto">Crédito é consumido por análise, proporcional ao número de imagens. O custo estimado aparece <b>antes</b> de você confirmar — sempre.</p>
+      <p class="section-sub" style="margin:0 auto">Crédito é consumido por análise, proporcional ao número de imagens. O custo estimado aparece sempre <b>antes</b> de você confirmar.</p>
     </div>
     <div class="plans-grid">
       <!-- AVULSO -->
@@ -868,12 +830,12 @@ footer{
           200 créditos (Básico)
         </span>
         <ul>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Básico — 200 créditos por R$ 33</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Avançado — 1.000 créditos por R$ 140</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Básico: 200 créditos por R$ 33</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Avançado: 1.000 créditos por R$ 140</li>
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Perfeito para experimentar o Neurocalc</li>
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Migre para assinatura quando fizer sentido</li>
         </ul>
-        <a class="btn btn-outline" href="https://app.neurocalc.com.br">Comprar créditos</a>
+        <a class="btn btn-outline" href="https://app.neurocalc.com.br/cadastro">Comprar créditos</a>
       </article>
 
       <!-- INDIVIDUAL -->
@@ -895,7 +857,7 @@ footer{
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Exportação em PDF</li>
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Cancele a renovação quando quiser</li>
         </ul>
-        <a class="btn btn-primary" href="https://app.neurocalc.com.br">Assinar agora</a>
+        <a class="btn btn-primary" href="https://app.neurocalc.com.br/cadastro">Assinar agora</a>
       </article>
 
       <!-- EQUIPE -->
@@ -916,7 +878,7 @@ footer{
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Ranking comparativo da equipe</li>
           <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Créditos renovam por vaga ativa</li>
         </ul>
-        <a class="btn btn-outline" href="https://app.neurocalc.com.br">Montar minha equipe</a>
+        <a class="btn btn-outline" href="https://app.neurocalc.com.br/cadastro">Montar minha equipe</a>
       </article>
     </div>
     <p class="plans-note">
@@ -936,11 +898,11 @@ footer{
     <div class="faq-list reveal r-d1">
       <details class="faq-item">
         <summary>O Neurocalc substitui um radiologista ou neurologista? <span class="plus">+</span></summary>
-        <p class="faq-a">Não — e nem tenta. O Neurocalc é uma ferramenta de apoio educacional e de estudo. Todos os resultados contêm um disclaimer médico explícito e não devem ser usados como laudo clínico definitivo.</p>
+        <p class="faq-a">Não, e nem tenta. O Neurocalc é uma ferramenta de apoio educacional e de estudo. Todos os resultados contêm um disclaimer médico explícito e não devem ser usados como laudo clínico definitivo.</p>
       </details>
       <details class="faq-item">
         <summary>Que tipo de exames o sistema aceita? <span class="plus">+</span></summary>
-        <p class="faq-a">Imagens de TC e RM em formato de slices (fatias). Suporte a arquivos comuns de imagem exportados por sistemas PACS/DICOM.</p>
+        <p class="faq-a">Imagens de TC, RM e outras modalidades, em formato de slices (fatias). Suporte a arquivos comuns de imagem exportados por sistemas PACS/DICOM.</p>
       </details>
       <details class="faq-item">
         <summary>Meus dados são seguros? <span class="plus">+</span></summary>
@@ -948,7 +910,7 @@ footer{
       </details>
       <details class="faq-item">
         <summary>Como funciona o sistema de créditos? <span class="plus">+</span></summary>
-        <p class="faq-a">Cada análise consome créditos com base no número de imagens enviadas. Antes de confirmar o envio, o sistema mostra o custo estimado — você decide se quer prosseguir. Sem surpresas.</p>
+        <p class="faq-a">Cada análise consome créditos com base no número de imagens enviadas. Antes de confirmar o envio, o sistema mostra o custo estimado, e você decide se quer prosseguir. Sem surpresas.</p>
       </details>
       <details class="faq-item">
         <summary>O plano Equipe é mais caro por pessoa? <span class="plus">+</span></summary>
@@ -966,10 +928,10 @@ footer{
 <section class="cta-final">
   <div class="wrap reveal">
     <span class="cta-kicker">// última chamada</span>
-    <h2>Daqui a um ano, você vai querer<br>ter começado <em>hoje</em>.</h2>
+    <h2>Pronto para testar com<br>seus próprios <em>exames</em>?</h2>
     <p>Crie sua conta, rode as primeiras análises e sinta a diferença que resultado estruturado faz na sua curva de aprendizado.</p>
-    <a class="btn btn-orange" href="https://app.neurocalc.com.br" style="font-size:17px;padding:17px 38px">Criar conta grátis</a>
-    <p class="cta-support">Dúvidas? <a href="mailto:suporte@neurocalc.com.br">suporte@neurocalc.com.br</a></p>
+    <a class="btn btn-orange" href="https://app.neurocalc.com.br/cadastro" style="font-size:17px;padding:17px 38px">Criar conta grátis</a>
+    <p class="cta-support">Dúvidas? <a href="mailto:contato@neurocalc.com.br">contato@neurocalc.com.br</a></p>
   </div>
 </section>
 
@@ -977,20 +939,20 @@ footer{
 <footer>
   <div class="wrap">
     <div class="foot">
-      <img src="https://b60eab0ab75424b73b03747ffbf09a60.cdn.bubble.io/f1765554968205x354732600291388200/Logo.svg" alt="Neurocalc">
+      <img src="assets/logo-neurocalc.svg" alt="Neurocalc">
       <nav class="foot-links" aria-label="Links do rodapé">
-        <a href="https://app.neurocalc.com.br">Acessar o app</a>
-        <a href="#">Termos de Uso</a>
-        <a href="#">Política de Privacidade</a>
-        <a href="mailto:suporte@neurocalc.com.br">suporte@neurocalc.com.br</a>
+        <a href="https://app.neurocalc.com.br/">Acessar o app</a>
+        <a href="https://app.neurocalc.com.br/termos-de-uso">Termos de Uso</a>
+        <a href="https://app.neurocalc.com.br/politica-de-privacidade">Política de Privacidade</a>
+        <a href="mailto:contato@neurocalc.com.br">contato@neurocalc.com.br</a>
       </nav>
       <span>© 2026 Neurocalc</span>
     </div>
     <p class="foot-disclaimer">
-      O Neurocalc é uma ferramenta de apoio educacional e de estudo em neuroimagem.
+      O Neurocalc é uma ferramenta de apoio educacional e de estudo em exames de imagem.
       Os resultados gerados pela plataforma não constituem laudo médico, diagnóstico
-      ou recomendação clínica, e não substituem a avaliação de um médico radiologista
-      ou neurologista qualificado.
+      ou recomendação clínica, e não substituem a avaliação de um médico especialista
+      qualificado.
     </p>
   </div>
 </footer>
