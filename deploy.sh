@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Deploy da landing Neurocalc no VPS.
-# Uso: rode dentro da pasta do repositorio no servidor:  bash deploy.sh
+# Uso: rode dentro da pasta do repositorio no servidor:  bash deploy.sh ou bash /opt/neurocalc-landing/deploy.sh
 set -euo pipefail
 cd "$(dirname "$0")"
 
