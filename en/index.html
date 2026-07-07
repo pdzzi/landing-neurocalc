@@ -1,24 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <script>
-/* Detecção de idioma: manda visitante de navegador não-PT para /en,
-   respeitando a escolha manual salva em nc-lang. */
+/* Language preference: send a visitor who chose PT back to the root. */
 (function(){
   try{
-    var chosen = localStorage.getItem('nc-lang');
-    if(chosen === 'pt') return;
-    if(chosen === 'en'){ location.replace('en/'); return; }
-    var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
-    if(lang && lang.indexOf('pt') !== 0){ location.replace('en/'); }
+    if(localStorage.getItem('nc-lang') === 'pt'){ location.replace('../'); }
   }catch(e){}
 })();
 </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neurocalc: análise de exames de imagem com IA</title>
-<meta name="description" content="Envie imagens de TC, RM e outros exames, receba uma análise estruturada em minutos e acompanhe sua evolução nos estudos.">
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<title>Neurocalc: AI-powered medical imaging analysis</title>
+<meta name="description" content="Upload your CT, MRI and other scan images, get a structured analysis in minutes and track your learning progress.">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
 <link rel="alternate" hreflang="pt-BR" href="https://neurocalc.com.br/">
 <link rel="alternate" hreflang="en" href="https://neurocalc.com.br/en/">
 <link rel="alternate" hreflang="x-default" href="https://neurocalc.com.br/">
@@ -596,26 +591,26 @@ footer{
 <body>
 
 <!-- ============ HEADER ============ -->
-<header id="topo">
+<header id="top">
   <div class="wrap nav" id="nav">
-    <a class="nav-logo" href="#topo" aria-label="Neurocalc: início">
-      <img src="assets/logo-neurocalc.svg" alt="Neurocalc">
+    <a class="nav-logo" href="#top" aria-label="Neurocalc: home">
+      <img src="../assets/logo-neurocalc.svg" alt="Neurocalc">
     </a>
     <ul class="nav-links">
-      <li><a href="#como-funciona">Como funciona</a></li>
-      <li><a href="#para-quem">Para quem é</a></li>
-      <li><a href="#recursos">Recursos</a></li>
-      <li><a href="#planos">Planos</a></li>
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#who">Who it's for</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#plans">Plans</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
     <div class="nav-cta">
       <div class="lang-switch" role="group" aria-label="Idioma / Language">
-        <span class="lang-active" aria-current="true">PT</span>
-        <a href="en/" hreflang="en" lang="en" onclick="try{localStorage.setItem('nc-lang','en')}catch(e){}">EN</a>
+        <a href="../" hreflang="pt-BR" lang="pt-BR" onclick="try{localStorage.setItem('nc-lang','pt')}catch(e){}">PT</a>
+        <span class="lang-active" aria-current="true">EN</span>
       </div>
-      <a class="nav-login" href="https://app.neurocalc.com.br/">Entrar</a>
-      <a class="btn btn-primary" href="https://app.neurocalc.com.br/cadastro">Criar conta grátis</a>
-      <button class="menu-btn" aria-label="Abrir menu" onclick="document.getElementById('nav').classList.toggle('nav-open')">
+      <a class="nav-login" href="https://app.neurocalc.com.br/">Log in</a>
+      <a class="btn btn-primary" href="https://app.neurocalc.com.br/cadastro">Create free account</a>
+      <button class="menu-btn" aria-label="Open menu" onclick="document.getElementById('nav').classList.toggle('nav-open')">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -629,27 +624,27 @@ footer{
   <span class="hero-cross cross-3">WW 80 / WL 40</span>
 
   <div class="wrap hero-inner">
-    <span class="hero-badge"><span class="dot"></span> IA APLICADA A EXAMES DE IMAGEM, PARA QUEM ESTUDA</span>
-    <h1>Analise exames de imagem com <em>IA</em>.</h1>
+    <span class="hero-badge"><span class="dot"></span> AI FOR MEDICAL IMAGING, BUILT FOR LEARNERS</span>
+    <h1>Analyze medical imaging with <em>AI</em>.</h1>
     <p class="hero-sub">
-      Envie as imagens do seu exame de TC, RM ou outras modalidades e receba uma análise estruturada
-      <b>em minutos</b>, para estudar e acompanhar sua evolução. Do 4º ano de medicina ao plantão da residência.
+      Upload the images from your CT, MRI or other scans and get a structured analysis
+      <b>in minutes</b>, to study and track your progress. From your 4th year of med school to the residency night shift.
     </p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" href="https://app.neurocalc.com.br/cadastro">Criar conta grátis</a>
-      <a class="btn btn-ghost" href="#como-funciona">Ver o protocolo ↓</a>
+      <a class="btn btn-primary" href="https://app.neurocalc.com.br/cadastro">Create free account</a>
+      <a class="btn btn-ghost" href="#how-it-works">See the protocol ↓</a>
     </div>
   </div>
 
-  <!-- MOCKUP 1 · Dashboard — substituir o src abaixo pelo caminho real -->
+  <!-- MOCKUP 1 · Dashboard -->
   <div class="wrap hero-mock">
     <div class="float-chip chip-pts">
       <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 010-5H6m12 5h1.5a2.5 2.5 0 000-5H18M4 22h16M10 22V8m4 14V8M8 4h8l-1 9a3 3 0 01-6 0L8 4z"/></svg></span>
-      <span>+500 pts<small>Pontuação no mês</small></span>
+      <span>+500 pts<small>Score this month</small></span>
     </div>
     <div class="float-chip chip-ia">
       <span class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2a7 7 0 017 7c0 2.4-1.2 4.5-3 5.7V17a2 2 0 01-2 2h-4a2 2 0 01-2-2v-2.3C6.2 13.5 5 11.4 5 9a7 7 0 017-7zM9 21h6"/></svg></span>
-      <span>Análise concluída<small>47 slices · TC crânio</small></span>
+      <span>Analysis complete<small>47 slices · Head CT</small></span>
     </div>
     <figure class="mock-frame">
       <div class="mock-bar" aria-hidden="true">
@@ -657,7 +652,7 @@ footer{
         <span class="mock-url">app.neurocalc.com.br</span>
       </div>
       <div class="mock-body">
-        <img src="assets/mockup-1-dashboard.webp" alt="Dashboard do Neurocalc com análises recentes, créditos e ranking">
+        <img src="../assets/mockup-1-dashboard.webp" alt="Neurocalc dashboard with recent analyses, credits and ranking">
         <div class="scanline" aria-hidden="true"></div>
       </div>
     </figure>
@@ -667,108 +662,108 @@ footer{
 <!-- ============ TICKER ============ -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>TC</span><span>RM</span><span>Raio-X</span><span>Ultrassom</span><span>Janela óssea</span><span>Contraste</span><span>Achados radiológicos</span><span>Laudo estruturado</span><span>Hiperdensidade</span><span>Edema</span><span>Fratura</span><span>Nódulo</span>
-    <span>TC</span><span>RM</span><span>Raio-X</span><span>Ultrassom</span><span>Janela óssea</span><span>Contraste</span><span>Achados radiológicos</span><span>Laudo estruturado</span><span>Hiperdensidade</span><span>Edema</span><span>Fratura</span><span>Nódulo</span>
+    <span>CT</span><span>MRI</span><span>X-ray</span><span>Ultrasound</span><span>Bone window</span><span>Contrast</span><span>Radiological findings</span><span>Structured report</span><span>Hyperdensity</span><span>Edema</span><span>Fracture</span><span>Nodule</span>
+    <span>CT</span><span>MRI</span><span>X-ray</span><span>Ultrasound</span><span>Bone window</span><span>Contrast</span><span>Radiological findings</span><span>Structured report</span><span>Hyperdensity</span><span>Edema</span><span>Fracture</span><span>Nodule</span>
   </div>
 </div>
 
 <!-- ============ STATS ============ -->
 <div class="stats">
   <div class="wrap stats-grid">
-    <div class="stat reveal r-d1"><div class="num"><b>min</b>utos</div><div class="lbl">da imagem ao resultado</div></div>
-    <div class="stat reveal r-d2"><div class="num">20<b>0</b></div><div class="lbl">imagens por análise</div></div>
-    <div class="stat reveal r-d3"><div class="num">2.0<b>00</b></div><div class="lbl">créditos/mês nos planos</div></div>
-    <div class="stat reveal r-d4"><div class="num">24<b>/7</b></div><div class="lbl">disponível quando você estuda</div></div>
+    <div class="stat reveal r-d1"><div class="num"><b>min</b>utes</div><div class="lbl">from image to result</div></div>
+    <div class="stat reveal r-d2"><div class="num">20<b>0</b></div><div class="lbl">images per analysis</div></div>
+    <div class="stat reveal r-d3"><div class="num">2,0<b>00</b></div><div class="lbl">credits/month on plans</div></div>
+    <div class="stat reveal r-d4"><div class="num">24<b>/7</b></div><div class="lbl">available whenever you study</div></div>
   </div>
 </div>
 
-<!-- ============ COMO FUNCIONA ============ -->
-<section class="how" id="como-funciona">
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how" id="how-it-works">
   <div class="wrap">
     <div class="reveal">
-      <span class="eyebrow"><span class="n">01</span> Protocolo</span>
-      <h2 class="section-title">Três passos. Zero fricção.</h2>
-      <p class="section-sub">O fluxo foi desenhado para caber na vida real: entre uma aula e outra, ou entre um paciente e outro.</p>
+      <span class="eyebrow"><span class="n">01</span> Protocol</span>
+      <h2 class="section-title">Three steps. Zero friction.</h2>
+      <p class="section-sub">The flow is designed to fit real life: between one class and the next, or between one patient and another.</p>
     </div>
     <div class="how-grid">
       <div class="step reveal r-d1">
         <span class="big-n">1</span>
-        <span class="step-label">PASSO_01 // UPLOAD</span>
-        <h3>Suba o exame</h3>
-        <p>Arraste os slices ou a pasta inteira. Até 200 imagens por análise, em diferentes modalidades, sem conversão manual.</p>
+        <span class="step-label">STEP_01 // UPLOAD</span>
+        <h3>Upload the scan</h3>
+        <p>Drag in the slices or the whole folder. Up to 200 images per analysis, across different modalities, with no manual conversion.</p>
       </div>
       <div class="step reveal r-d2">
         <span class="big-n">2</span>
-        <span class="step-label">PASSO_02 // PROCESSAMENTO</span>
-        <h3>A IA varre tudo</h3>
-        <p>Os modelos identificam regiões e achados relevantes, e estruturam o resultado em poucos minutos.</p>
+        <span class="step-label">STEP_02 // PROCESSING</span>
+        <h3>The AI scans everything</h3>
+        <p>The models identify relevant regions and findings and structure the result in a few minutes.</p>
       </div>
       <div class="step reveal r-d3">
         <span class="big-n">3</span>
-        <span class="step-label">PASSO_03 // RESULTADO</span>
-        <h3>Leia e aprenda</h3>
-        <p>Resultado detalhado, organizado por região e nível de relevância. Exporte em PDF com disclaimer médico incluído.</p>
+        <span class="step-label">STEP_03 // RESULT</span>
+        <h3>Read and learn</h3>
+        <p>A detailed result, organized by region and relevance level. Export to PDF with a medical disclaimer included.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ SHOWCASE · ANÁLISE (MOCKUP 2) ============ -->
+<!-- ============ SHOWCASE · ANALYSIS (MOCKUP 2) ============ -->
 <section class="showcase">
   <div class="wrap showcase-grid">
     <div class="reveal">
-      <span class="eyebrow"><span class="n">02</span> Resultado</span>
-      <h2 class="section-title" style="font-size:clamp(27px,3.6vw,38px)">Ajuste a janela.<br>Suba o nível.</h2>
-      <p class="section-sub">Cada análise volta organizada por região, com os pontos críticos destacados. Não é um bloco de texto, é um mapa de estudo.</p>
+      <span class="eyebrow"><span class="n">02</span> Result</span>
+      <h2 class="section-title" style="font-size:clamp(27px,3.6vw,38px)">Adjust the window.<br>Level up.</h2>
+      <p class="section-sub">Every analysis comes back organized by region, with the critical points highlighted. It's not a wall of text, it's a study map.</p>
       <ul class="check-list">
-        <li><span class="check-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Regiões críticas destacadas:</b> a IA aponta onde olhar primeiro, você aprende o porquê.</span></li>
-        <li><span class="check-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Custo visível antes de confirmar:</b> a estimativa de créditos aparece antes do envio. Sem surpresa na fatura.</span></li>
-        <li><span class="check-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>PDF em um clique:</b> formatado, com disclaimer médico, pronto para a discussão clínica de amanhã.</span></li>
+        <li><span class="check-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Critical regions highlighted:</b> the AI points out where to look first, and you learn why.</span></li>
+        <li><span class="check-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>Cost visible before you confirm:</b> the credit estimate appears before you submit. No surprises on your bill.</span></li>
+        <li><span class="check-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></span><span><b>PDF in one click:</b> formatted, with a medical disclaimer, ready for tomorrow's clinical discussion.</span></li>
       </ul>
     </div>
     <figure class="showcase-img reveal r-d2">
-      <img src="assets/mockup-2-analise.webp" alt="Tela de resultado de análise do Neurocalc com regiões críticas destacadas">
+      <img src="../assets/mockup-2-analise.webp" alt="Neurocalc analysis result screen with critical regions highlighted">
     </figure>
   </div>
 </section>
 
-<!-- ============ PARA QUEM É ============ -->
-<section class="who" id="para-quem">
+<!-- ============ WHO IT'S FOR ============ -->
+<section class="who" id="who">
   <div class="wrap">
     <div class="reveal">
-      <span class="eyebrow"><span class="n">03</span> Para quem é</span>
-      <h2 class="section-title">Feito para quem vive isso</h2>
-      <p class="section-sub">Três rotinas diferentes, a mesma necessidade: ler exames de imagem com confiança e acompanhar sua evolução.</p>
+      <span class="eyebrow"><span class="n">03</span> Who it's for</span>
+      <h2 class="section-title">Built for the people who live this</h2>
+      <p class="section-sub">Three different routines, the same need: reading medical images with confidence and tracking your progress.</p>
     </div>
     <div class="who-grid">
       <article class="persona reveal r-d1">
-        <span class="persona-kicker">// estudante</span>
-        <h3>Para quem está virando a noite pro R1</h3>
-        <p>Para treinar a leitura de exames de imagem fora do horário de aula, com feedback estruturado, no seu ritmo, mesmo de madrugada.</p>
+        <span class="persona-kicker">// student</span>
+        <h3>For those pulling all-nighters before the residency exam</h3>
+        <p>To practice reading medical images outside class hours, with structured feedback, at your own pace, even at 3 a.m.</p>
         <div class="persona-tags">
-          <span class="tag">Modo Estudo</span>
+          <span class="tag">Study Mode</span>
           <span class="tag">Ranking</span>
-          <span class="tag">Créditos individuais</span>
+          <span class="tag">Individual credits</span>
         </div>
       </article>
       <article class="persona reveal r-d2">
-        <span class="persona-kicker">// residente</span>
-        <h3>Para quem está entre um plantão e outro</h3>
-        <p>Tempo é o recurso mais escasso do plantão. Upload, processamento e resultado estruturado em minutos, com PDF pronto para a discussão clínica.</p>
+        <span class="persona-kicker">// resident</span>
+        <h3>For those between one shift and the next</h3>
+        <p>Time is the scarcest resource on shift. Upload, processing and a structured result in minutes, with a PDF ready for the clinical discussion.</p>
         <div class="persona-tags">
-          <span class="tag">Modo Normal</span>
-          <span class="tag">Histórico</span>
-          <span class="tag">PDF / Impressão</span>
+          <span class="tag">Normal Mode</span>
+          <span class="tag">History</span>
+          <span class="tag">PDF / Print</span>
         </div>
       </article>
       <article class="persona reveal r-d3">
-        <span class="persona-kicker">// liga acadêmica</span>
-        <h3>Para a liga que estuda em bando</h3>
-        <p>Crie a equipe, distribua créditos, acompanhe cada membro no painel. O líder organiza, o grupo evolui, e o ranking mostra quem está estudando de verdade.</p>
+        <span class="persona-kicker">// student league</span>
+        <h3>For the league that studies as a pack</h3>
+        <p>Create the team, hand out credits, follow each member on the dashboard. The leader organizes, the group grows, and the ranking shows who's really studying.</p>
         <div class="persona-tags">
-          <span class="tag">Plano Equipe</span>
-          <span class="tag">Painel do líder</span>
-          <span class="tag">Ranking comparativo</span>
+          <span class="tag">Team Plan</span>
+          <span class="tag">Leader dashboard</span>
+          <span class="tag">Comparative ranking</span>
         </div>
       </article>
     </div>
@@ -776,47 +771,47 @@ footer{
 </section>
 
 <!-- ============ FEATURES + RANKING (MOCKUP 3) ============ -->
-<section class="features" id="recursos">
+<section class="features" id="features">
   <div class="wrap" style="position:relative">
     <div class="reveal">
-      <span class="eyebrow"><span class="n">04</span> Recursos</span>
-      <h2 class="section-title">Profundidade sem ruído</h2>
-      <p class="section-sub">Tudo que transforma exame em aprendizado, e aprendizado em constância.</p>
+      <span class="eyebrow"><span class="n">04</span> Features</span>
+      <h2 class="section-title">Depth without noise</h2>
+      <p class="section-sub">Everything that turns a scan into learning, and learning into consistency.</p>
     </div>
     <div class="feat-grid">
       <div class="feat reveal r-d1">
         <div class="feat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 017 7c0 2.4-1.2 4.5-3 5.7V17a2 2 0 01-2 2h-4a2 2 0 01-2-2v-2.3C6.2 13.5 5 11.4 5 9a7 7 0 017-7zM9 21h6"/></svg></div>
-        <h3>Análise por IA</h3>
-        <p>Modelos de visão varrem os slices e estruturam os achados automaticamente.</p>
+        <h3>AI analysis</h3>
+        <p>Vision models scan the slices and structure the findings automatically.</p>
       </div>
       <div class="feat reveal r-d2">
         <div class="feat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2V3zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7V3z"/></svg></div>
-        <h3>Modo Estudo</h3>
-        <p>Pratique sem placar. Resultado pedagógico, fora da competição. Ideal pra véspera de prova.</p>
+        <h3>Study Mode</h3>
+        <p>Practice off the scoreboard. A teaching-oriented result, outside the competition. Perfect the night before an exam.</p>
       </div>
       <div class="feat reveal r-d3">
         <div class="feat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 010-5H6m12 5h1.5a2.5 2.5 0 000-5H18M4 22h16M10 22V8m4 14V8M8 4h8l-1 9a3 3 0 01-6 0L8 4z"/></svg></div>
-        <h3>Ranking e conquistas</h3>
-        <p>Cada análise pontua. Ranking mensal e geral: competição saudável que vira hábito.</p>
+        <h3>Ranking and achievements</h3>
+        <p>Every analysis scores points. Monthly and all-time rankings: healthy competition that becomes a habit.</p>
       </div>
       <div class="feat reveal r-d4">
         <div class="feat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 16l4-4 4 2 5-6"/></svg></div>
-        <h3>Histórico completo</h3>
-        <p>Toda análise fica salva, pesquisável e reanalisável. Sua curva de aprendizado, documentada.</p>
+        <h3>Full history</h3>
+        <p>Every analysis is saved, searchable and re-analyzable. Your learning curve, documented.</p>
       </div>
       <div class="feat reveal r-d5">
         <div class="feat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
-        <h3>Exportar PDF</h3>
-        <p>PDF formatado com disclaimer médico, para discussão clínica ou registro de estudo.</p>
+        <h3>Export PDF</h3>
+        <p>A formatted PDF with a medical disclaimer, for clinical discussion or study records.</p>
       </div>
       <div class="feat reveal r-d6">
         <div class="feat-ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
         <h3>Mobile</h3>
-        <p>No celular, no intervalo, no ônibus. Mesmo rigor, mesma análise.</p>
+        <p>On your phone, on a break, on the bus. Same rigor, same analysis.</p>
       </div>
     </div>
 
-    <!-- MOCKUP 3 · Ranking — substituir o src abaixo pelo caminho real -->
+    <!-- MOCKUP 3 · Ranking -->
     <div class="rank-band">
       <figure class="mock-frame reveal">
         <div class="mock-bar" aria-hidden="true">
@@ -824,95 +819,95 @@ footer{
           <span class="mock-url">app.neurocalc.com.br/ranking</span>
         </div>
         <div class="mock-body">
-          <img src="assets/mockup-3-ranking.webp" alt="Ranking gamificado do Neurocalc com pontuação mensal">
+          <img src="../assets/mockup-3-ranking.webp" alt="Neurocalc gamified ranking with monthly scores">
         </div>
       </figure>
       <div class="reveal r-d2">
         <span class="rank-pill">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 010-5H6m12 5h1.5a2.5 2.5 0 000-5H18M4 22h16M10 22V8m4 14V8M8 4h8l-1 9a3 3 0 01-6 0L8 4z"/></svg>
-          Gamificação
+          Gamification
         </span>
-        <h3>Constância é o que separa quem passa de quem quase passa.</h3>
-        <p>Cada análise pontua. O ranking mensal reinicia a disputa, o geral conta a história. E quando você quiser treinar sem plateia, o Modo Estudo fica fora do placar.</p>
+        <h3>Consistency is what separates those who pass from those who almost pass.</h3>
+        <p>Every analysis scores points. The monthly ranking resets the race, the all-time one tells the story. And when you want to train without an audience, Study Mode stays off the scoreboard.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ PLANOS ============ -->
-<section class="plans" id="planos">
+<!-- ============ PLANS ============ -->
+<section class="plans" id="plans">
   <div class="wrap">
     <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto">
-      <span class="eyebrow" style="justify-content:center"><span class="n">05</span> Planos</span>
-      <h2 class="section-title">Investimento claro, créditos na mão</h2>
-      <p class="section-sub" style="margin:0 auto">Crédito é consumido por análise, proporcional ao número de imagens. O custo estimado aparece sempre <b>antes</b> de você confirmar.</p>
+      <span class="eyebrow" style="justify-content:center"><span class="n">05</span> Plans</span>
+      <h2 class="section-title">Clear investment, credits in hand</h2>
+      <p class="section-sub" style="margin:0 auto">Credits are used per analysis, proportional to the number of images. The estimated cost always shows <b>before</b> you confirm.</p>
     </div>
     <div class="plans-grid">
-      <!-- AVULSO -->
+      <!-- PAY-AS-YOU-GO -->
       <article class="plan reveal r-d1">
-        <span class="plan-kicker">// sem assinatura</span>
-        <h3>Avulso</h3>
-        <p class="plan-sub">Compre quando precisar. Zero compromisso.</p>
-        <div class="plan-price"><span class="cur">R$</span><span class="val">33</span><span class="per">pagamento único</span></div>
+        <span class="plan-kicker">// no subscription</span>
+        <h3>Pay-as-you-go</h3>
+        <p class="plan-sub">Buy when you need it. Zero commitment.</p>
+        <div class="plan-price"><span class="cur">R$</span><span class="val">33</span><span class="per">one-time payment</span></div>
         <span class="plan-credits">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-          200 créditos (Básico)
+          200 credits (Basic)
         </span>
         <ul>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Básico: 200 créditos por R$ 33</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Avançado: 1.000 créditos por R$ 140</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Perfeito para experimentar o Neurocalc</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Migre para assinatura quando fizer sentido</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Basic: 200 credits for R$ 33</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Advanced: 1,000 credits for R$ 140</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Perfect for trying Neurocalc out</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Move to a subscription whenever it makes sense</li>
         </ul>
-        <a class="btn btn-outline" href="https://app.neurocalc.com.br/cadastro">Comprar créditos</a>
+        <a class="btn btn-outline" href="https://app.neurocalc.com.br/cadastro">Buy credits</a>
       </article>
 
       <!-- INDIVIDUAL -->
       <article class="plan plan-pop reveal r-d2">
-        <span class="plan-flag">Mais popular</span>
-        <span class="plan-kicker">// assinatura</span>
+        <span class="plan-flag">Most popular</span>
+        <span class="plan-kicker">// subscription</span>
         <h3>Individual</h3>
-        <p class="plan-sub">Para quem estuda ou pratica com regularidade.</p>
-        <span class="plan-from">a partir de</span>
-        <div class="plan-price"><span class="cur">R$</span><span class="val">220</span><span class="per">/mês no plano anual</span></div>
+        <p class="plan-sub">For those who study or practice regularly.</p>
+        <span class="plan-from">from</span>
+        <div class="plan-price"><span class="cur">R$</span><span class="val">220</span><span class="per">/mo on the annual plan</span></div>
         <span class="plan-credits">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-          2.000 créditos todo mês
+          2,000 credits every month
         </span>
         <ul>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Mensal R$ 275 · Semestral R$ 248/mês · Anual R$ 220/mês</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Modo Estudo + Modo Normal</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Ranking, conquistas e histórico completo</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Exportação em PDF</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Cancele a renovação quando quiser</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Monthly R$ 275 · Biannual R$ 248/mo · Annual R$ 220/mo</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Study Mode + Normal Mode</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Ranking, achievements and full history</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> PDF export</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Cancel renewal anytime</li>
         </ul>
-        <a class="btn btn-primary" href="https://app.neurocalc.com.br/cadastro">Assinar agora</a>
+        <a class="btn btn-primary" href="https://app.neurocalc.com.br/cadastro">Subscribe now</a>
       </article>
 
-      <!-- EQUIPE -->
+      <!-- TEAM -->
       <article class="plan reveal r-d3">
-        <span class="plan-kicker">// para grupos</span>
-        <h3>Equipe</h3>
-        <p class="plan-sub">Para ligas, residências e grupos de estudo.</p>
-        <span class="plan-from">a partir de</span>
-        <div class="plan-price"><span class="cur">R$</span><span class="val">275</span><span class="per">/vaga/mês no anual</span></div>
+        <span class="plan-kicker">// for groups</span>
+        <h3>Team</h3>
+        <p class="plan-sub">For leagues, residencies and study groups.</p>
+        <span class="plan-from">from</span>
+        <div class="plan-price"><span class="cur">R$</span><span class="val">275</span><span class="per">/seat/mo on annual</span></div>
         <span class="plan-credits">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
-          2.000 créditos/mês por vaga
+          2,000 credits/mo per seat
         </span>
         <ul>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Mensal R$ 330 · Semestral R$ 303 · Anual R$ 275 por vaga</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Líder gerencia convites, créditos e faturamento</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Painel com a evolução de cada membro</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Ranking comparativo da equipe</li>
-          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Créditos renovam por vaga ativa</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Monthly R$ 330 · Biannual R$ 303 · Annual R$ 275 per seat</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Leader manages invites, credits and billing</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Dashboard with each member's progress</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Comparative team ranking</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Credits renew per active seat</li>
         </ul>
-        <a class="btn btn-outline" href="https://app.neurocalc.com.br/cadastro">Montar minha equipe</a>
+        <a class="btn btn-outline" href="https://app.neurocalc.com.br/cadastro">Build my team</a>
       </article>
     </div>
     <p class="plans-note">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-      Pagamento via PIX, boleto ou cartão · Powered by Asaas
+      Payment via PIX, bank slip or card · Powered by Asaas
     </p>
   </div>
 </section>
@@ -922,32 +917,32 @@ footer{
   <div class="wrap">
     <div class="reveal" style="text-align:center">
       <span class="eyebrow" style="justify-content:center"><span class="n">06</span> FAQ</span>
-      <h2 class="section-title">O que todo mundo pergunta</h2>
+      <h2 class="section-title">What everyone asks</h2>
     </div>
     <div class="faq-list reveal r-d1">
       <details class="faq-item">
-        <summary>O Neurocalc substitui um radiologista ou neurologista? <span class="plus">+</span></summary>
-        <p class="faq-a">Não, e nem tenta. O Neurocalc é uma ferramenta de apoio educacional e de estudo. Todos os resultados contêm um disclaimer médico explícito e não devem ser usados como laudo clínico definitivo.</p>
+        <summary>Does Neurocalc replace a radiologist or neurologist? <span class="plus">+</span></summary>
+        <p class="faq-a">No, and it doesn't try to. Neurocalc is an educational and study support tool. Every result carries an explicit medical disclaimer and should not be used as a definitive clinical report.</p>
       </details>
       <details class="faq-item">
-        <summary>Que tipo de exames o sistema aceita? <span class="plus">+</span></summary>
-        <p class="faq-a">Imagens de TC, RM e outras modalidades, em formato de slices (fatias). Suporte a arquivos comuns de imagem exportados por sistemas PACS/DICOM.</p>
+        <summary>What kind of scans does the system accept? <span class="plus">+</span></summary>
+        <p class="faq-a">CT, MRI and other modality images, in slice format. It supports common image files exported from PACS/DICOM systems.</p>
       </details>
       <details class="faq-item">
-        <summary>Meus dados são seguros? <span class="plus">+</span></summary>
-        <p class="faq-a">As imagens são armazenadas em AWS S3 com acesso restrito. Os dados são tratados conforme a LGPD.</p>
+        <summary>Is my data safe? <span class="plus">+</span></summary>
+        <p class="faq-a">Images are stored in AWS S3 with restricted access. Data is handled in accordance with Brazil's LGPD data protection law.</p>
       </details>
       <details class="faq-item">
-        <summary>Como funciona o sistema de créditos? <span class="plus">+</span></summary>
-        <p class="faq-a">Cada análise consome créditos com base no número de imagens enviadas. Antes de confirmar o envio, o sistema mostra o custo estimado, e você decide se quer prosseguir. Sem surpresas.</p>
+        <summary>How does the credit system work? <span class="plus">+</span></summary>
+        <p class="faq-a">Each analysis uses credits based on the number of images uploaded. Before you confirm, the system shows the estimated cost and you decide whether to proceed. No surprises.</p>
       </details>
       <details class="faq-item">
-        <summary>O plano Equipe é mais caro por pessoa? <span class="plus">+</span></summary>
-        <p class="faq-a">O plano Equipe tem cobrança por vaga (por membro ativo). Os créditos renovam mensalmente para cada vaga paga. O líder gerencia quem entra, quem sai e o saldo centralizado da equipe.</p>
+        <summary>Is the Team plan more expensive per person? <span class="plus">+</span></summary>
+        <p class="faq-a">The Team plan is billed per seat (per active member). Credits renew monthly for each paid seat. The leader manages who joins, who leaves and the team's centralized balance.</p>
       </details>
       <details class="faq-item">
-        <summary>Posso cancelar ou mudar de plano? <span class="plus">+</span></summary>
-        <p class="faq-a">Sim. Você pode cancelar a renovação automática a qualquer momento e voltar para uso avulso. Migração de plano avulso para mensal é feita diretamente na tela de Faturamento.</p>
+        <summary>Can I cancel or change plans? <span class="plus">+</span></summary>
+        <p class="faq-a">Yes. You can cancel automatic renewal at any time and go back to pay-as-you-go. Switching from pay-as-you-go to a monthly plan is done right from the Billing screen.</p>
       </details>
     </div>
   </div>
@@ -956,11 +951,11 @@ footer{
 <!-- ============ CTA FINAL ============ -->
 <section class="cta-final">
   <div class="wrap reveal">
-    <span class="cta-kicker">// última chamada</span>
-    <h2>Pronto para testar com<br>seus próprios <em>exames</em>?</h2>
-    <p>Crie sua conta, rode as primeiras análises e sinta a diferença que resultado estruturado faz na sua curva de aprendizado.</p>
-    <a class="btn btn-orange" href="https://app.neurocalc.com.br/cadastro" style="font-size:17px;padding:17px 38px">Criar conta grátis</a>
-    <p class="cta-support">Dúvidas? <a href="mailto:contato@neurocalc.com.br">contato@neurocalc.com.br</a></p>
+    <span class="cta-kicker">// last call</span>
+    <h2>Ready to test it with<br>your own <em>scans</em>?</h2>
+    <p>Create your account, run your first analyses and feel the difference a structured result makes to your learning curve.</p>
+    <a class="btn btn-orange" href="https://app.neurocalc.com.br/cadastro" style="font-size:17px;padding:17px 38px">Create free account</a>
+    <p class="cta-support">Questions? <a href="mailto:contato@neurocalc.com.br">contato@neurocalc.com.br</a></p>
   </div>
 </section>
 
@@ -968,20 +963,20 @@ footer{
 <footer>
   <div class="wrap">
     <div class="foot">
-      <img src="assets/logo-neurocalc.svg" alt="Neurocalc">
-      <nav class="foot-links" aria-label="Links do rodapé">
-        <a href="https://app.neurocalc.com.br/">Acessar o app</a>
-        <a href="https://app.neurocalc.com.br/termos-de-uso">Termos de Uso</a>
-        <a href="https://app.neurocalc.com.br/politica-de-privacidade">Política de Privacidade</a>
+      <img src="../assets/logo-neurocalc.svg" alt="Neurocalc">
+      <nav class="foot-links" aria-label="Footer links">
+        <a href="https://app.neurocalc.com.br/">Open the app</a>
+        <a href="https://app.neurocalc.com.br/termos-de-uso">Terms of Use</a>
+        <a href="https://app.neurocalc.com.br/politica-de-privacidade">Privacy Policy</a>
         <a href="mailto:contato@neurocalc.com.br">contato@neurocalc.com.br</a>
       </nav>
       <span>© 2026 Neurocalc</span>
     </div>
     <p class="foot-disclaimer">
-      O Neurocalc é uma ferramenta de apoio educacional e de estudo em exames de imagem.
-      Os resultados gerados pela plataforma não constituem laudo médico, diagnóstico
-      ou recomendação clínica, e não substituem a avaliação de um médico especialista
-      qualificado.
+      Neurocalc is an educational and study support tool for medical imaging.
+      The results generated by the platform do not constitute a medical report, diagnosis
+      or clinical recommendation, and do not replace evaluation by a qualified medical
+      specialist.
     </p>
   </div>
 </footer>
